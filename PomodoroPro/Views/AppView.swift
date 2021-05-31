@@ -13,12 +13,18 @@ struct AppView: View {
     @State var showingTimer = false
     
     var body: some View {
-        if showingTimer {
-            PomodoroView(viewModel: .init(pomodoroTime: pomodoroTime.asSeconds, breakTime: breakTime.asSeconds, showing: $showingTimer))
+        NavigationView {
+            Group {
+                if showingTimer {
+                    PomodoroView(viewModel: .init(pomodoroTime: pomodoroTime.asSeconds, breakTime: breakTime.asSeconds, showing: $showingTimer))
+                }
+                else {
+                    SettingsView(pomodoroTime: $pomodoroTime, breakTime: $breakTime, showingTimer: $showingTimer)
+                }
+            }
+            .navigationTitle("Pomodoro Pro")
         }
-        else {
-            SettingsView(pomodoroTime: $pomodoroTime, breakTime: $breakTime, showingTimer: $showingTimer)
-        }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

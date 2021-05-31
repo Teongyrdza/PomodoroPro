@@ -18,32 +18,36 @@ struct SettingsView: View {
     }
     
     var body: some View {
-        VStack {
-            VStack(alignment: .leading) {
-                Text("Pomodoro:")
-                    .font(.system(size: 30))
+        ScrollView {
+            VStack {
+                Divider()
                 
-                TimePicker(selection: $pomodoroTime, in: range)
-            }
-            
-            Spacer()
-            
-            VStack(alignment: .leading) {
-                Text("Break:")
-                    .font(.system(size: 30))
+                VStack(alignment: .leading) {
+                    Text("Pomodoro:")
+                        .font(.system(size: 30))
+                    
+                    TimePicker(selection: $pomodoroTime, in: range)
+                }
                 
-                TimePicker(selection: $breakTime, in: range)
+                Spacer()
+                
+                VStack(alignment: .leading) {
+                    Text("Break:")
+                        .font(.system(size: 30))
+                    
+                    TimePicker(selection: $breakTime, in: range)
+                }
+                
+                Spacer()
+                
+                Button("Start") {
+                    showingTimer = true
+                }
+                .buttonStyle(RoundedButtonStyle())
+                .frame(width: 200, height: 50)
             }
-            
-            Spacer()
-            
-            Button("Start") {
-                showingTimer = true
-            }
-            .buttonStyle(RoundedButtonStyle())
-            .frame(width: 200, height: 50)
+            .padding(.horizontal)
         }
-        .padding()
     }
 }
 
@@ -53,8 +57,12 @@ struct TimerSettingsView_Previews: PreviewProvider {
     @State static var breakTime = Time(0, 5, 0)
     
     static var previews: some View {
-        SettingsView(pomodoroTime: $pomodoroTime, breakTime: $breakTime, showingTimer: .constant(false))
-            .preferredColorScheme(.dark)
+        NavigationView {
+            SettingsView(pomodoroTime: $pomodoroTime, breakTime: $breakTime, showingTimer: .constant(false))
+                .preferredColorScheme(.dark)
+                .navigationTitle("Pomodoro Pro")
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 #endif

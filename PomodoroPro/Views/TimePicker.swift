@@ -8,14 +8,11 @@
 import SwiftUI
 
 class TimePickerView: UIPickerView {
-    let width: CGFloat
-    
     override var intrinsicContentSize: CGSize {
-        .init(width: width, height: super.intrinsicContentSize.height)
+        .init(width: UIScreen.main.bounds.width - 40, height: 216)
     }
     
-    init(width: CGFloat) {
-        self.width = width
+    init() {
         super.init(frame: .zero)
     }
     
@@ -30,14 +27,13 @@ struct TimePickerRepresentable: UIViewRepresentable {
     @Binding var selection: Time
     let range: RangeType<Time>
     let shownComponents: [TimeComponent]
-    let size: CGSize
     
     func numberOfComponents() -> Int {
         shownComponents.count * 2 // values plus labels
     }
     
     func makeUIView(context: Context) -> TimePickerView {
-        let picker = TimePickerView(width: size.width)
+        let picker = TimePickerView()
         picker.dataSource = context.coordinator
         picker.delegate = context.coordinator
         return picker
@@ -56,13 +52,11 @@ struct TimePickerRepresentable: UIViewRepresentable {
     init(
         selection: Binding<Time>,
         in range: RangeType<Time>,
-        shownComponents: [TimeComponent],
-        size: CGSize
+        shownComponents: [TimeComponent]
     ) {
         self._selection = selection
         self.range = range
         self.shownComponents = shownComponents
-        self.size = size
     }
     
     class Coordinator: NSObject, UIPickerViewDataSource, UIPickerViewDelegate {
@@ -93,9 +87,11 @@ struct TimePickerRepresentable: UIViewRepresentable {
             return upperBound - lowerBound
         }
         
+        /*
         func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
             return parent.size.width / CGFloat(parent.numberOfComponents())
         }
+        */
         
         func title(for component: TimeComponent) -> String {
             switch component {
@@ -165,14 +161,11 @@ struct TimePicker: View {
     let range: RangeType<Time>
     
     var body: some View {
-        GeometryReader { geo in
-            TimePickerRepresentable(
-                selection: $selection,
-                in: range,
-                shownComponents: [.minutes, .seconds],
-                size: geo.size
-            )
-        }
+        TimePickerRepresentable(
+            selection: $selection,
+            in: range,
+            shownComponents: [.minutes, .seconds]
+        )
     }
     
     init(selection: Binding<Time>, in range: RangeType<Time>) {
