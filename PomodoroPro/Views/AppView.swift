@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct AppView: View {
-    @State var pomodoroTime = Time(0, 30, 0)
-    @State var breakTime = Time(0, 5, 0)
+    @StateObject var timerSettings = TimerSettings()
     @State var showingTimer = false
     
     var body: some View {
         NavigationView {
             Group {
                 if showingTimer {
-                    PomodoroView(viewModel: .init(pomodoroTime: pomodoroTime.asSeconds, breakTime: breakTime.asSeconds, showing: $showingTimer))
+                    PomodoroView(viewModel: .init(settings: timerSettings, showing: $showingTimer))
                 }
                 else {
-                    SettingsView(pomodoroTime: $pomodoroTime, breakTime: $breakTime, showingTimer: $showingTimer)
+                    SettingsView(showingTimer: $showingTimer)
                 }
             }
             .navigationTitle("Pomodoro Pro")
+            .environmentObject(timerSettings)
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }

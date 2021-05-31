@@ -9,8 +9,7 @@ import SwiftUI
 import StarUI
 
 struct SettingsView: View {
-    @Binding var pomodoroTime: Time
-    @Binding var breakTime: Time
+    @EnvironmentObject var settings: TimerSettings
     @Binding var showingTimer: Bool
     
     var range: ClosedRange<Time> {
@@ -26,7 +25,7 @@ struct SettingsView: View {
                     Text("Pomodoro:")
                         .font(.system(size: 30))
                     
-                    TimePicker(selection: $pomodoroTime, in: range)
+                    TimePicker(selection: $settings.pomodoroTime, in: range)
                 }
                 
                 Spacer()
@@ -35,16 +34,31 @@ struct SettingsView: View {
                     Text("Break:")
                         .font(.system(size: 30))
                     
-                    TimePicker(selection: $breakTime, in: range)
+                    TimePicker(selection: $settings.breakTime, in: range)
                 }
                 
                 Spacer()
+                
+                GroupBox {
+                    HStack {
+                        Text("When timer ends")
+                        
+                        Spacer()
+                        
+                        NavigationLink(destination: SoundPicker(selection: $settings.sound)) {
+                            Text(settings.sound.description)
+                                .opacity(0.5)
+                                .foregroundColor(.gray)
+                        }
+                    }
+                }
+                .padding(.bottom, 50)
                 
                 Button("Start") {
                     showingTimer = true
                 }
                 .buttonStyle(RoundedButtonStyle())
-                .frame(width: 200, height: 50)
+                .frame(width: 150, height: 50)
             }
             .padding(.horizontal)
         }
@@ -53,16 +67,14 @@ struct SettingsView: View {
 
 #if DEBUG
 struct TimerSettingsView_Previews: PreviewProvider {
-    @State static var pomodoroTime = Time(0, 30, 0)
-    @State static var breakTime = Time(0, 5, 0)
-    
     static var previews: some View {
         NavigationView {
-            SettingsView(pomodoroTime: $pomodoroTime, breakTime: $breakTime, showingTimer: .constant(false))
+            SettingsView(showingTimer: .constant(false))
                 .preferredColorScheme(.dark)
                 .navigationTitle("Pomodoro Pro")
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .environmentObject(TimerSettings())
     }
 }
 #endif

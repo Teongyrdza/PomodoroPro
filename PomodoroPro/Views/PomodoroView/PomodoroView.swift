@@ -49,8 +49,10 @@ struct PomodoroView: View {
 
 #if DEBUG
 struct PomodoroView_Previews: PreviewProvider {
+    @StateObject static var timerSettings = TimerSettings()
+    
     static var previews: some View {
-        PomodoroView(viewModel: .init(pomodoroTime: 30, breakTime: 5, showing: .constant(true)))
+        PomodoroView(viewModel: .init(settings: timerSettings, showing: .constant(true)))
     }
 }
 #endif

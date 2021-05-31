@@ -129,7 +129,7 @@ extension PomodoroView {
         let pomodoroTime: TimeInterval
         let breakTime: TimeInterval
         var textPrefix = "Break"
-        var player: AVAudioPlayer = .beep
+        var player: AVAudioPlayer
         var previousState: State?
         
         func push(state: State) {
@@ -137,10 +137,12 @@ extension PomodoroView {
             self.state = state
         }
         
-        init(pomodoroTime: TimeInterval, breakTime: TimeInterval, showing: Binding<Bool>) {
-            timer = PomodoroTimer(fireAfter: pomodoroTime)
-            self.pomodoroTime = pomodoroTime
-            self.breakTime = breakTime
+        init(settings: TimerSettings, showing: Binding<Bool>) {
+            timer = PomodoroTimer(fireAfter: settings.pomodoroTime.asSeconds)
+            pomodoroTime = settings.pomodoroTime.asSeconds
+            breakTime = settings.breakTime.asSeconds
+            player = settings.sound.player
+            player.numberOfLoops = -1
             _showing = showing
             
             timer.objectWillChange
@@ -154,6 +156,10 @@ extension PomodoroView {
                     self.push(state: .dinging)
                 }
                 .store(in: &cancellables)
+        }
+        
+        deinit {
+            player.numberOfLoops = 1
         }
     }
 }
@@ -223,7 +229,7 @@ extension PomodoroView.ViewModel {
             }
             
             override func exit(_ viewModel: PomodoroView.ViewModel) {
-                viewModel.player.stop()
+                viewModel.player.pause()
             }
         }
         
