@@ -20,6 +20,7 @@ struct PomodoroView: View {
                     .progressViewStyle(CircularProgressViewStyle(thickness: 30))
                 
                 Text(viewModel.progressText)
+                    .multilineTextAlignment(.center)
             }
             
             HStack {
