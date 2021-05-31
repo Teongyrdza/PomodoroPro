@@ -11,7 +11,7 @@ extension AVAudioPlayer {
     static let beep: AVAudioPlayer = {
         guard let url = Bundle.main.url(forResource: "Beep", withExtension: "mp3") else { fatalError("Failed to find sound file.") }
         let player = try! AVAudioPlayer(contentsOf: url)
-        player.numberOfLoops = 3
+        player.numberOfLoops = -1
         return player
     }()
 }
