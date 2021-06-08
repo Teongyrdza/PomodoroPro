@@ -12,6 +12,7 @@ import AVKit
 
 struct PomodoroView: View {
     @StateObject var viewModel: ViewModel
+    @Environment(\.scenePhase) var scenePhase: ScenePhase
     
     var body: some View {
         VStack {
@@ -38,12 +39,15 @@ struct PomodoroView: View {
                 .accentColor(viewModel.rightButtonColor)
                 .frame(width: 90)
             }
-            .buttonStyle(RoundedButtonStyle())
+            .buttonStyle(RoundedCornersButtonStyle())
             .frame(height: 50)
         }
         .padding()
         .onAppear {
             viewModel.onAppear()
+        }
+        .onChange(of: scenePhase) { phase in
+            viewModel.scenePhase(changedTo: phase)
         }
     }
 }

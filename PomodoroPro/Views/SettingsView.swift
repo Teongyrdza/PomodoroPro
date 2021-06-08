@@ -57,7 +57,7 @@ struct SettingsView: View {
                 Button("Start") {
                     showingTimer = true
                 }
-                .buttonStyle(RoundedButtonStyle())
+                .buttonStyle(RoundedCornersButtonStyle())
                 .frame(width: 150, height: 50)
             }
             .padding(.horizontal)
