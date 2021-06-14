@@ -9,6 +9,6 @@ import Combine
 
 class TimerSettings: ObservableObject {
     @Published var pomodoroTime = Time(0, 30, 0)
-    @Published var breakTime = Time(0, 15, 0)
+    @Published var breakTime = Time(0, 5, 0)
     @Published var sound = Sound(named: "beep", description: "Beep")
 }
