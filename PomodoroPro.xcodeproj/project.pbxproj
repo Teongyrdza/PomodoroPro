@@ -93,7 +93,7 @@
 		F0084C0C25449ACC00BB1641 /* PomodoroPro */ = {
 			isa = PBXGroup;
 			children = (
-				F02A0F032619F28700949C8D /* Extensions */,
+				F02A0F032619F28700949C8D /* Support */,
 				F0A3326F2589395D00D7F093 /* Models */,
 				F02A0EFA2619E16C00949C8D /* Views */,
 				F055C91D2576B15400103F70 /* Resources */,
@@ -127,13 +127,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		F02A0F032619F28700949C8D /* Extensions */ = {
+		F02A0F032619F28700949C8D /* Support */ = {
 			isa = PBXGroup;
 			children = (
 				F03236AE2664BADA0079376E /* String.swift */,
 				F03236C32664FF650079376E /* Looper.swift */,
 			);
-			path = Extensions;
+			path = Support;
 			sourceTree = "<group>";
 		};
 		F03236B12664C5120079376E /* PomodoroView */ = {
