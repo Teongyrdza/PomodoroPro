@@ -61,7 +61,7 @@ extension PomodoroView {
         }
         
         func onAppear() {
-            state = .pomodoro
+            state = initialState
         }
         
         // MARK: - Private
@@ -91,16 +91,20 @@ extension PomodoroView {
         let breakTime: TimeInterval
         var textPrefix = "Break"
         
+        let initialState: State
+        
         let player: AVAudioPlayer
         let backgroundTask = BackgroundTask()
         
-        init(settings: TimerSettings, showing: Binding<Bool>) {
+        init(settings: TimerSettings, showing: Binding<Bool>, initialState: State = .pomodoro) {
             _showing = showing
             timer = PomodoroTimer(fireAfter: settings.pomodoroTime.asSeconds)
             pomodoroTime = settings.pomodoroTime.asSeconds
             breakTime = settings.breakTime.asSeconds
             player = settings.sound.playerCopy()
             player.numberOfLoops = -1
+            
+            self.initialState = initialState
             
             timer.objectWillChange
                 .sink(receiveValue: objectWillChange.send)

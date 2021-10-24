@@ -11,6 +11,7 @@ import StarUI
 struct SettingsView: View {
     @EnvironmentObject var settings: TimerSettings
     @Binding var showingTimer: Bool
+    @Binding var timerState: PomodoroView.ViewModel.State
     
     var range: ClosedRange<Time> {
         Time(0)...Time(3599)
@@ -54,11 +55,24 @@ struct SettingsView: View {
                 }
                 .padding(.bottom, 50)
                 
-                Button("Start") {
-                    showingTimer = true
+                HStack {
+                    Button("Pomodoro") {
+                        timerState = .pomodoro
+                        showingTimer = true
+                    }
+                    
+                    .frame(width: 100)
+                    
+                    Spacer()
+                    
+                    Button("Break") {
+                        timerState = .break
+                        showingTimer = true
+                    }
+                    .frame(width: 100)
                 }
-                .buttonStyle(RoundedCornersButtonStyle())
-                .frame(width: 150, height: 50)
+                .buttonStyle(.roundedCorners)
+                .frame(height: 50)
             }
             .padding(.horizontal)
         }
@@ -69,7 +83,7 @@ struct SettingsView: View {
 struct TimerSettingsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            SettingsView(showingTimer: .constant(false))
+            SettingsView(showingTimer: .constant(false), timerState: .constant(.pomodoro))
                 .preferredColorScheme(.dark)
                 .navigationTitle("Pomodoro Pro")
         }
