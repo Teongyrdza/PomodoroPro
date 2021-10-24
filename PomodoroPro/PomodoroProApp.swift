@@ -6,6 +6,11 @@
 //
 
 import SwiftUI
+import AVKit
+
+extension AVAudioSession {
+    static let shared = sharedInstance()
+}
 
 @main
 struct PomodoroProApp: App {
@@ -15,6 +20,15 @@ struct PomodoroProApp: App {
     var body: some Scene {
         WindowGroup {
             AppView()
+        }
+    }
+    
+    init() {
+        do {
+            try AVAudioSession.shared.setCategory(.playback)
+            try AVAudioSession.shared.setActive(true)
+        } catch {
+            print("Error configuring audio session")
         }
     }
 }

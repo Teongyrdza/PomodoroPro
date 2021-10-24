@@ -28,6 +28,7 @@
 		F03236C42664FF650079376E /* Looper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03236C32664FF650079376E /* Looper.swift */; };
 		F032373A266DF8AB0079376E /* silence.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F0323739266DF8AB0079376E /* silence.mp3 */; };
 		F055C91F2576B1AB00103F70 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F055C91E2576B1AB00103F70 /* beep.mp3 */; };
+		F05FA9F526C906610030DCD9 /* BackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05FA9F426C906610030DCD9 /* BackgroundTask.swift */; };
 		F0A3326D2589395100D7F093 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A3326C2589395100D7F093 /* Time.swift */; };
 		F0D28655254F25F900156538 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D28654254F25F900156538 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		F03236C32664FF650079376E /* Looper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Looper.swift; sourceTree = "<group>"; };
 		F0323739266DF8AB0079376E /* silence.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = silence.mp3; sourceTree = "<group>"; };
 		F055C91E2576B1AB00103F70 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
+		F05FA9F426C906610030DCD9 /* BackgroundTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTask.swift; sourceTree = "<group>"; };
 		F0A3326C2589395100D7F093 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		F0D28654254F25F900156538 /* SettingsView.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,6 +163,7 @@
 				F02A0F002619E84800949C8D /* PomodoroTimer.swift */,
 				F03236BF2664F00B0079376E /* Sound.swift */,
 				F03236BD2664EFB60079376E /* TimerSettings.swift */,
+				F05FA9F426C906610030DCD9 /* BackgroundTask.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			files = (
 				F0084C1E25449B2600BB1641 /* PomodoroView.swift in Sources */,
 				F03236AF2664BADA0079376E /* String.swift in Sources */,
+				F05FA9F526C906610030DCD9 /* BackgroundTask.swift in Sources */,
 				F02A0F642620255B00949C8D /* WheelPicker.swift in Sources */,
 				F02A0F012619E84800949C8D /* PomodoroTimer.swift in Sources */,
 				F03236B32664C53B0079376E /* PomodoroViewModel.swift in Sources */,

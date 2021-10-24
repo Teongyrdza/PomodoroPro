@@ -46,9 +46,6 @@ struct PomodoroView: View {
         .onAppear {
             viewModel.onAppear()
         }
-        .onChange(of: scenePhase) { phase in
-            viewModel.scenePhase(changedTo: phase)
-        }
     }
 }
 

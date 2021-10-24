@@ -9,38 +9,6 @@ import AVKit
 import SwiftUI
 import Combine
 
-struct Stack<Item> {
-    var items = [Item]()
-    
-    var currentItem: Item? {
-        get {
-            guard items.count > 0 else {
-                return nil
-            }
-            return items[items.count - 1]
-        }
-        set {
-            guard items.count > 0 else {
-                return
-            }
-            items[items.count - 1] = newValue!
-        }
-    }
-    
-    mutating func push(_ item: Item) {
-        items.append(item)
-    }
-    
-    @discardableResult
-    mutating func pop() -> Item? {
-        items.popLast()
-    }
-    
-    mutating func popAll() {
-        items = []
-    }
-}
-
 extension PomodoroView {
     class ViewModel: ObservableObject {
         // MARK: - View Properties
@@ -129,7 +97,9 @@ extension PomodoroView {
         let pomodoroTime: TimeInterval
         let breakTime: TimeInterval
         var textPrefix = "Break"
-        var player: AVAudioPlayer
+        
+        let player: AVAudioPlayer
+        let backgroundTask = BackgroundTask()
         var previousState: State?
         
         func push(state: State) {
@@ -138,16 +108,16 @@ extension PomodoroView {
         }
         
         init(settings: TimerSettings, showing: Binding<Bool>) {
+            _showing = showing
             timer = PomodoroTimer(fireAfter: settings.pomodoroTime.asSeconds)
             pomodoroTime = settings.pomodoroTime.asSeconds
             breakTime = settings.breakTime.asSeconds
-            player = settings.sound.player
+            player = settings.sound.playerCopy()
             player.numberOfLoops = -1
-            _showing = showing
             
             timer.objectWillChange
-                .sink {
-                    self.objectWillChange.send()
+                .sink { [unowned self] in
+                    objectWillChange.send()
                 }
                 .store(in: &cancellables)
             
@@ -156,10 +126,6 @@ extension PomodoroView {
                     self.push(state: .dinging)
                 }
                 .store(in: &cancellables)
-        }
-        
-        deinit {
-            player.numberOfLoops = 1
         }
     }
 }
@@ -214,13 +180,6 @@ extension PomodoroView.ViewModel {
             }
         }
         
-        class Paused: State {
-            override func enter(_ viewModel: PomodoroView.ViewModel) {
-                viewModel.rightButtonColor = .green
-                viewModel.rightButtonText = "Resume"
-            }
-        }
-        
         class Dinging: State {
             override func enter(_ viewModel: PomodoroView.ViewModel) {
                 viewModel.rightButtonColor = .green
@@ -233,13 +192,33 @@ extension PomodoroView.ViewModel {
             }
         }
         
-        class Hidden: State {
+        class Stopped: State {
             override func enter(_ viewModel: PomodoroView.ViewModel) {
+                viewModel.backgroundTask.stop()
+            }
+            
+            override func exit(_ viewModel: PomodoroView.ViewModel) {
+                viewModel.backgroundTask.start()
+            }
+        }
+        
+        class Paused: Stopped {
+            override func enter(_ viewModel: PomodoroView.ViewModel) {
+                super.enter(viewModel)
+                viewModel.rightButtonColor = .green
+                viewModel.rightButtonText = "Resume"
+            }
+        }
+        
+        class Hidden: Stopped {
+            override func enter(_ viewModel: PomodoroView.ViewModel) {
+                super.enter(viewModel)
                 viewModel.showing = false
             }
             
             override func exit(_ viewModel: PomodoroView.ViewModel) {
                 viewModel.showing = true
+                super.exit(viewModel)
             }
         }
     }
