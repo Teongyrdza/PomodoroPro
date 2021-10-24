@@ -31,14 +31,17 @@ extension PomodoroView {
             var result = "\(textPrefix) in "
             
             let timeRemaining = Int(timer.timeRemaining)
+            let minutes = timeRemaining / 60
+            let seconds = timeRemaining % 60
             
-            switch timer.timeRemaining {
-                case 0..<60:
-                    result += label(forSeconds: timeRemaining)
-                case 60:
-                    result += "1 minute"
-                default:
-                    result += "\(label(forMinutes: timeRemaining / 60)) \(label(forSeconds: timeRemaining % 60))"
+            if minutes == 0 {
+                result += label(forSeconds: seconds)
+            }
+            else if seconds == 0 {
+                result += label(forMinutes: minutes)
+            }
+            else {
+                result += "\(label(forMinutes: minutes)) \(label(forSeconds: seconds))"
             }
             
             return result
