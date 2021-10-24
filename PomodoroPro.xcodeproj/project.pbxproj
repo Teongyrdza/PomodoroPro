@@ -15,6 +15,7 @@
 		F02A0F38261AFF3800949C8D /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02A0F37261AFF3800949C8D /* TimePicker.swift */; };
 		F02A0F61262020C100949C8D /* FSPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02A0F60262020C100949C8D /* FSPicker.swift */; };
 		F02A0F642620255B00949C8D /* WheelPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02A0F632620255B00949C8D /* WheelPicker.swift */; };
+		F031CFDE2725BB2600BE3D1D /* InertState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F031CFDD2725BB2600BE3D1D /* InertState.swift */; };
 		F03236AB2663AEAA0079376E /* StarUI in Frameworks */ = {isa = PBXBuildFile; productRef = F03236AA2663AEAA0079376E /* StarUI */; };
 		F03236AD2663EC4B0079376E /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03236AC2663EC4B0079376E /* AppView.swift */; };
 		F03236AF2664BADA0079376E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03236AE2664BADA0079376E /* String.swift */; };
@@ -43,6 +44,7 @@
 		F02A0F37261AFF3800949C8D /* TimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
 		F02A0F60262020C100949C8D /* FSPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSPicker.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		F02A0F632620255B00949C8D /* WheelPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelPicker.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		F031CFDD2725BB2600BE3D1D /* InertState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InertState.swift; sourceTree = "<group>"; };
 		F03236AC2663EC4B0079376E /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		F03236AE2664BADA0079376E /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F03236B22664C53B0079376E /* PomodoroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroViewModel.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				F03236AE2664BADA0079376E /* String.swift */,
+				F031CFDD2725BB2600BE3D1D /* InertState.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				F0D28655254F25F900156538 /* SettingsView.swift in Sources */,
 				F03236AD2663EC4B0079376E /* AppView.swift in Sources */,
 				F02A0F38261AFF3800949C8D /* TimePicker.swift in Sources */,
+				F031CFDE2725BB2600BE3D1D /* InertState.swift in Sources */,
 				F03236BE2664EFB60079376E /* TimerSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
