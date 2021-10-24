@@ -54,17 +54,7 @@ extension PomodoroView {
         }
         
         func rightButtonTapped() {
-            if state is State.Running {
-                push(state: .paused)
-            }
-            else {
-                if state == .dinging {
-                    state = previousState!.next()!
-                }
-                else if state == .paused {
-                    state = previousState!
-                }
-            }
+            state.rightButtonTapped(viewModel: self)
         }
         
         func onAppear() {
@@ -100,12 +90,6 @@ extension PomodoroView {
         
         let player: AVAudioPlayer
         let backgroundTask = BackgroundTask()
-        var previousState: State?
-        
-        func push(state: State) {
-            previousState = self.state
-            self.state = state
-        }
         
         init(settings: TimerSettings, showing: Binding<Bool>) {
             _showing = showing
@@ -116,14 +100,12 @@ extension PomodoroView {
             player.numberOfLoops = -1
             
             timer.objectWillChange
-                .sink { [unowned self] in
-                    objectWillChange.send()
-                }
+                .sink(receiveValue: objectWillChange.send)
                 .store(in: &cancellables)
             
             timer.timePassed
-                .sink {
-                    self.push(state: .dinging)
+                .sink { [unowned self] in
+                    state.timePassed(viewModel: self)
                 }
                 .store(in: &cancellables)
         }
@@ -135,13 +117,11 @@ extension PomodoroView.ViewModel {
     class State {
         func enter(_ viewModel: PomodoroView.ViewModel) {}
         func exit(_ viewModel: PomodoroView.ViewModel) {}
-        func next() -> State? { return nil }
+        func rightButtonTapped(viewModel: PomodoroView.ViewModel) {}
+        func timePassed(viewModel: PomodoroView.ViewModel) {}
         
-        static let running = Running()
         static let pomodoro = Pomodoro()
         static let `break` = Break()
-        static let paused = Paused()
-        static let dinging = Dinging()
         static let hidden = Hidden()
         
         class Running: State {
@@ -154,6 +134,10 @@ extension PomodoroView.ViewModel {
             override func exit(_ viewModel: PomodoroView.ViewModel) {
                 viewModel.timer.stop()
             }
+            
+            override func rightButtonTapped(viewModel: PomodoroView.ViewModel) {
+                viewModel.state = Paused(pausing: self)
+            }
         }
         
         class Pomodoro: Running {
@@ -163,8 +147,8 @@ extension PomodoroView.ViewModel {
                 super.enter(viewModel)
             }
             
-            override func next() -> PomodoroView.ViewModel.State? {
-                .break
+            override func timePassed(viewModel: PomodoroView.ViewModel) {
+                viewModel.state = Dinging(next: .break)
             }
         }
         
@@ -175,12 +159,14 @@ extension PomodoroView.ViewModel {
                 super.enter(viewModel)
             }
             
-            override func next() -> PomodoroView.ViewModel.State? {
-                .pomodoro
+            override func timePassed(viewModel: PomodoroView.ViewModel) {
+                viewModel.state = Dinging(next: .pomodoro)
             }
         }
         
         class Dinging: State {
+            let next: State
+            
             override func enter(_ viewModel: PomodoroView.ViewModel) {
                 viewModel.rightButtonColor = .green
                 viewModel.rightButtonText = "Continue"
@@ -189,6 +175,14 @@ extension PomodoroView.ViewModel {
             
             override func exit(_ viewModel: PomodoroView.ViewModel) {
                 viewModel.player.pause()
+            }
+            
+            override func rightButtonTapped(viewModel: PomodoroView.ViewModel) {
+                viewModel.state = next
+            }
+            
+            init(next: State) {
+                self.next = next
             }
         }
         
@@ -203,10 +197,20 @@ extension PomodoroView.ViewModel {
         }
         
         class Paused: Stopped {
+            let state: State
+            
             override func enter(_ viewModel: PomodoroView.ViewModel) {
                 super.enter(viewModel)
                 viewModel.rightButtonColor = .green
                 viewModel.rightButtonText = "Resume"
+            }
+            
+            override func rightButtonTapped(viewModel: PomodoroView.ViewModel) {
+                viewModel.state = state
+            }
+            
+            init(pausing state: State) {
+                self.state = state
             }
         }
         
