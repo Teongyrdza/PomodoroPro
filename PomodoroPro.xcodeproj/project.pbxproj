@@ -26,10 +26,9 @@
 		F03236BE2664EFB60079376E /* TimerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03236BD2664EFB60079376E /* TimerSettings.swift */; };
 		F03236C02664F00B0079376E /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03236BF2664F00B0079376E /* Sound.swift */; };
 		F03236C22664F6C20079376E /* SoundPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03236C12664F6C20079376E /* SoundPicker.swift */; };
-		F032373A266DF8AB0079376E /* silence.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F0323739266DF8AB0079376E /* silence.mp3 */; };
 		F055C91F2576B1AB00103F70 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F055C91E2576B1AB00103F70 /* beep.mp3 */; };
-		F05FA9F526C906610030DCD9 /* BackgroundTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05FA9F426C906610030DCD9 /* BackgroundTask.swift */; };
 		F0A3326D2589395100D7F093 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A3326C2589395100D7F093 /* Time.swift */; };
+		F0AD4BB12789890F002A9896 /* BackgroundTask in Frameworks */ = {isa = PBXBuildFile; productRef = F0AD4BB02789890F002A9896 /* BackgroundTask */; };
 		F0D28655254F25F900156538 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D28654254F25F900156538 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,9 +53,7 @@
 		F03236BD2664EFB60079376E /* TimerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSettings.swift; sourceTree = "<group>"; };
 		F03236BF2664F00B0079376E /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		F03236C12664F6C20079376E /* SoundPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPicker.swift; sourceTree = "<group>"; };
-		F0323739266DF8AB0079376E /* silence.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = silence.mp3; sourceTree = "<group>"; };
 		F055C91E2576B1AB00103F70 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
-		F05FA9F426C906610030DCD9 /* BackgroundTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTask.swift; sourceTree = "<group>"; };
 		F0A3326C2589395100D7F093 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		F0D28654254F25F900156538 /* SettingsView.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F03236AB2663AEAA0079376E /* StarUI in Frameworks */,
+				F0AD4BB12789890F002A9896 /* BackgroundTask in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,7 +149,6 @@
 				F055C91E2576B1AB00103F70 /* beep.mp3 */,
 				F03236B92664EF890079376E /* ding.mp3 */,
 				F03236BA2664EF890079376E /* meditationBell.mp3 */,
-				F0323739266DF8AB0079376E /* silence.mp3 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -163,7 +160,6 @@
 				F02A0F002619E84800949C8D /* PomodoroTimer.swift */,
 				F03236BF2664F00B0079376E /* Sound.swift */,
 				F03236BD2664EFB60079376E /* TimerSettings.swift */,
-				F05FA9F426C906610030DCD9 /* BackgroundTask.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -186,6 +182,7 @@
 			name = PomodoroPro;
 			packageProductDependencies = (
 				F03236AA2663AEAA0079376E /* StarUI */,
+				F0AD4BB02789890F002A9896 /* BackgroundTask */,
 			);
 			productName = PomodoroPro;
 			productReference = F0084C0A25449ACC00BB1641 /* PomodoroPro.app */;
@@ -216,6 +213,7 @@
 			mainGroup = F0084C0125449ACC00BB1641;
 			packageReferences = (
 				F03236A92663AEA90079376E /* XCRemoteSwiftPackageReference "StarUI" */,
+				F0AD4BAF2789890F002A9896 /* XCRemoteSwiftPackageReference "BackgroundTask" */,
 			);
 			productRefGroup = F0084C0B25449ACC00BB1641 /* Products */;
 			projectDirPath = "";
@@ -233,7 +231,6 @@
 			files = (
 				F055C91F2576B1AB00103F70 /* beep.mp3 in Resources */,
 				F03236BB2664EF890079376E /* ding.mp3 in Resources */,
-				F032373A266DF8AB0079376E /* silence.mp3 in Resources */,
 				F0084C1525449ACE00BB1641 /* Preview Assets.xcassets in Resources */,
 				F03236B72664E62E0079376E /* README.md in Resources */,
 				F0084C1225449ACE00BB1641 /* Assets.xcassets in Resources */,
@@ -250,7 +247,6 @@
 			files = (
 				F0084C1E25449B2600BB1641 /* PomodoroView.swift in Sources */,
 				F03236AF2664BADA0079376E /* String.swift in Sources */,
-				F05FA9F526C906610030DCD9 /* BackgroundTask.swift in Sources */,
 				F02A0F642620255B00949C8D /* WheelPicker.swift in Sources */,
 				F02A0F012619E84800949C8D /* PomodoroTimer.swift in Sources */,
 				F03236B32664C53B0079376E /* PomodoroViewModel.swift in Sources */,
@@ -462,6 +458,14 @@
 				kind = branch;
 			};
 		};
+		F0AD4BAF2789890F002A9896 /* XCRemoteSwiftPackageReference "BackgroundTask" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Teongyrdza/BackgroundTask";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -469,6 +473,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F03236A92663AEA90079376E /* XCRemoteSwiftPackageReference "StarUI" */;
 			productName = StarUI;
+		};
+		F0AD4BB02789890F002A9896 /* BackgroundTask */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0AD4BAF2789890F002A9896 /* XCRemoteSwiftPackageReference "BackgroundTask" */;
+			productName = BackgroundTask;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

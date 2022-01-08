@@ -8,6 +8,7 @@
 import AVKit
 import SwiftUI
 import Combine
+import BackgroundTask
 
 extension PomodoroView {
     class ViewModel: ObservableObject {

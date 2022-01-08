@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "BackgroundTask",
+        "repositoryURL": "https://github.com/Teongyrdza/BackgroundTask",
+        "state": {
+          "branch": "main",
+          "revision": "f71d08e7485752d089a1cd5c1e88fb473a3b3f23",
+          "version": null
+        }
+      },
+      {
         "package": "StarUI",
         "repositoryURL": "https://github.com/Teongyrdza/StarUI.git",
         "state": {

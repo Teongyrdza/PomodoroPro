@@ -18,12 +18,6 @@ extension AVAudioPlayer {
     static let ding: AVAudioPlayer = .init(named: "ding")
     
     static let meditationBell: AVAudioPlayer = .init(named: "meditationBell")
-    
-    static let silence: AVAudioPlayer = {
-        let player = AVAudioPlayer(named: "silence")
-        player.numberOfLoops = -1
-        return player
-    }()
 }
 
 struct Sound: Hashable, Identifiable, CustomStringConvertible {
