@@ -12,6 +12,12 @@ extension AVAudioSession {
     static let shared = sharedInstance()
 }
 
+extension FileManager {
+    var documentsFolder: URL {
+        try! url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+    }
+}
+
 @main
 struct PomodoroProApp: App {
     @State var time = Time(2, 35, 6)

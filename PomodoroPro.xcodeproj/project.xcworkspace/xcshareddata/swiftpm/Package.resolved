@@ -11,6 +11,24 @@
         }
       },
       {
+        "package": "ItDepends",
+        "repositoryURL": "https://github.com/Teongyrdza/ItDepends",
+        "state": {
+          "branch": "main",
+          "revision": "82a743f7d9da8649baa832b2d339f436df9301f3",
+          "version": null
+        }
+      },
+      {
+        "package": "Runtime",
+        "repositoryURL": "https://github.com/wickwirew/Runtime.git",
+        "state": {
+          "branch": null,
+          "revision": "dad03135d7701a4e7b3a4051e75d6b37bd8e178e",
+          "version": "2.2.4"
+        }
+      },
+      {
         "package": "StarUI",
         "repositoryURL": "https://github.com/Teongyrdza/StarUI.git",
         "state": {

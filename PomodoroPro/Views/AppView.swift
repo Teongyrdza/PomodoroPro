@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct AppView: View {
-    @StateObject var timerSettings = TimerSettings()
+    @StateObject var timerSettings: TimerSettings = (try? .load()) ?? .init()
     @State var showingTimer = false
     @InertState var initialState: PomodoroView.ViewModel.State = .pomodoro
+    @Environment(\.scenePhase) var scenePhase
     
     var body: some View {
         NavigationView {
@@ -31,7 +32,12 @@ struct AppView: View {
             .navigationTitle("Pomodoro Pro")
             .environmentObject(timerSettings)
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationViewStyle(.stack)
+        .onChange(of: scenePhase) { newPhase in
+            if newPhase != .active {
+                try? timerSettings.save()
+            }
+        }
     }
 }
 

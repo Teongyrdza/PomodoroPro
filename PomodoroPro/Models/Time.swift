@@ -27,7 +27,7 @@ func timeComponent(at index: Int) -> TimeComponent {
     return TimeComponent.allCases[index]
 }
 
-struct Time: Hashable, CustomStringConvertible {
+struct Time: Hashable, Codable, CustomStringConvertible {
     // Max values
     static let maxHours: Int = 24
     static let maxMinutes: Int = 60

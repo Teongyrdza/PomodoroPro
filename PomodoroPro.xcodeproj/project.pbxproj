@@ -34,6 +34,7 @@
 		F09FB55527D67E1C00E07781 /* Japanese bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F09FB55127D67E1C00E07781 /* Japanese bell.mp3 */; };
 		F09FB55627D67E1C00E07781 /* Chimes.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F09FB55227D67E1C00E07781 /* Chimes.mp3 */; };
 		F09FB55827D6882400E07781 /* Small bell jingling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F09FB55727D6882400E07781 /* Small bell jingling.mp3 */; };
+		F09FB55B27D68DF900E07781 /* ItDepends in Frameworks */ = {isa = PBXBuildFile; productRef = F09FB55A27D68DF900E07781 /* ItDepends */; };
 		F0A3326D2589395100D7F093 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A3326C2589395100D7F093 /* Time.swift */; };
 		F0AD4BB12789890F002A9896 /* BackgroundTask in Frameworks */ = {isa = PBXBuildFile; productRef = F0AD4BB02789890F002A9896 /* BackgroundTask */; };
 		F0D28655254F25F900156538 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D28654254F25F900156538 /* SettingsView.swift */; };
@@ -77,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F09FB55B27D68DF900E07781 /* ItDepends in Frameworks */,
 				F03236AB2663AEAA0079376E /* StarUI in Frameworks */,
 				F0AD4BB12789890F002A9896 /* BackgroundTask in Frameworks */,
 			);
@@ -177,10 +179,10 @@
 		F0A3326F2589395D00D7F093 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F03236BF2664F00B0079376E /* Sound.swift */,
 				F0A3326C2589395100D7F093 /* Time.swift */,
 				F02A0F002619E84800949C8D /* PomodoroTimer.swift */,
 				F03236BD2664EFB60079376E /* TimerSettings.swift */,
-				F03236BF2664F00B0079376E /* Sound.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,6 +206,7 @@
 			packageProductDependencies = (
 				F03236AA2663AEAA0079376E /* StarUI */,
 				F0AD4BB02789890F002A9896 /* BackgroundTask */,
+				F09FB55A27D68DF900E07781 /* ItDepends */,
 			);
 			productName = PomodoroPro;
 			productReference = F0084C0A25449ACC00BB1641 /* PomodoroPro.app */;
@@ -235,6 +238,7 @@
 			packageReferences = (
 				F03236A92663AEA90079376E /* XCRemoteSwiftPackageReference "StarUI" */,
 				F0AD4BAF2789890F002A9896 /* XCRemoteSwiftPackageReference "BackgroundTask" */,
+				F09FB55927D68DF900E07781 /* XCRemoteSwiftPackageReference "ItDepends" */,
 			);
 			productRefGroup = F0084C0B25449ACC00BB1641 /* Products */;
 			projectDirPath = "";
@@ -486,6 +490,14 @@
 				kind = branch;
 			};
 		};
+		F09FB55927D68DF900E07781 /* XCRemoteSwiftPackageReference "ItDepends" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Teongyrdza/ItDepends";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		F0AD4BAF2789890F002A9896 /* XCRemoteSwiftPackageReference "BackgroundTask" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Teongyrdza/BackgroundTask";
@@ -501,6 +513,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F03236A92663AEA90079376E /* XCRemoteSwiftPackageReference "StarUI" */;
 			productName = StarUI;
+		};
+		F09FB55A27D68DF900E07781 /* ItDepends */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F09FB55927D68DF900E07781 /* XCRemoteSwiftPackageReference "ItDepends" */;
+			productName = ItDepends;
 		};
 		F0AD4BB02789890F002A9896 /* BackgroundTask */ = {
 			isa = XCSwiftPackageProductDependency;
