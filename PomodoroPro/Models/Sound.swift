@@ -34,9 +34,13 @@ struct Sound: Hashable, Identifiable, CustomStringConvertible {
         lhs.name == rhs.name && lhs.description == rhs.description
     }
     
-    init(named name: String, description: String) {
+    init(name: String, description: String) {
         self.name = name
         self.description = description
         self.player = AVAudioPlayer(named: name)
+    }
+    
+    init(named name: String) {
+        self.init(name: name, description: name)
     }
 }

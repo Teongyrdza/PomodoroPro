@@ -21,12 +21,19 @@
 		F03236AF2664BADA0079376E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03236AE2664BADA0079376E /* String.swift */; };
 		F03236B32664C53B0079376E /* PomodoroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03236B22664C53B0079376E /* PomodoroViewModel.swift */; };
 		F03236B72664E62E0079376E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F03236B62664E62E0079376E /* README.md */; };
-		F03236BB2664EF890079376E /* ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F03236B92664EF890079376E /* ding.mp3 */; };
-		F03236BC2664EF890079376E /* meditationBell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F03236BA2664EF890079376E /* meditationBell.mp3 */; };
+		F03236BB2664EF890079376E /* Ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F03236B92664EF890079376E /* Ding.mp3 */; };
+		F03236BC2664EF890079376E /* Meditation bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F03236BA2664EF890079376E /* Meditation bell.mp3 */; };
 		F03236BE2664EFB60079376E /* TimerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03236BD2664EFB60079376E /* TimerSettings.swift */; };
 		F03236C02664F00B0079376E /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03236BF2664F00B0079376E /* Sound.swift */; };
 		F03236C22664F6C20079376E /* SoundPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03236C12664F6C20079376E /* SoundPicker.swift */; };
-		F055C91F2576B1AB00103F70 /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F055C91E2576B1AB00103F70 /* beep.mp3 */; };
+		F055C91F2576B1AB00103F70 /* Beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F055C91E2576B1AB00103F70 /* Beep.mp3 */; };
+		F09FB54C27D6783300E07781 /* Noah bells.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F09FB54B27D6783300E07781 /* Noah bells.mp3 */; };
+		F09FB54E27D678BA00E07781 /* Deep bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F09FB54D27D678BA00E07781 /* Deep bell.mp3 */; };
+		F09FB55327D67E1C00E07781 /* Medieval bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F09FB54F27D67E1B00E07781 /* Medieval bell.mp3 */; };
+		F09FB55427D67E1C00E07781 /* Large gong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F09FB55027D67E1B00E07781 /* Large gong.mp3 */; };
+		F09FB55527D67E1C00E07781 /* Japanese bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F09FB55127D67E1C00E07781 /* Japanese bell.mp3 */; };
+		F09FB55627D67E1C00E07781 /* Chimes.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F09FB55227D67E1C00E07781 /* Chimes.mp3 */; };
+		F09FB55827D6882400E07781 /* Small bell jingling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F09FB55727D6882400E07781 /* Small bell jingling.mp3 */; };
 		F0A3326D2589395100D7F093 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A3326C2589395100D7F093 /* Time.swift */; };
 		F0AD4BB12789890F002A9896 /* BackgroundTask in Frameworks */ = {isa = PBXBuildFile; productRef = F0AD4BB02789890F002A9896 /* BackgroundTask */; };
 		F0D28655254F25F900156538 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D28654254F25F900156538 /* SettingsView.swift */; };
@@ -48,12 +55,19 @@
 		F03236AE2664BADA0079376E /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F03236B22664C53B0079376E /* PomodoroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroViewModel.swift; sourceTree = "<group>"; };
 		F03236B62664E62E0079376E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		F03236B92664EF890079376E /* ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ding.mp3; sourceTree = "<group>"; };
-		F03236BA2664EF890079376E /* meditationBell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = meditationBell.mp3; sourceTree = "<group>"; };
+		F03236B92664EF890079376E /* Ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ding.mp3; sourceTree = "<group>"; };
+		F03236BA2664EF890079376E /* Meditation bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Meditation bell.mp3"; sourceTree = "<group>"; };
 		F03236BD2664EFB60079376E /* TimerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSettings.swift; sourceTree = "<group>"; };
 		F03236BF2664F00B0079376E /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		F03236C12664F6C20079376E /* SoundPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPicker.swift; sourceTree = "<group>"; };
-		F055C91E2576B1AB00103F70 /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
+		F055C91E2576B1AB00103F70 /* Beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Beep.mp3; sourceTree = "<group>"; };
+		F09FB54B27D6783300E07781 /* Noah bells.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Noah bells.mp3"; sourceTree = "<group>"; };
+		F09FB54D27D678BA00E07781 /* Deep bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Deep bell.mp3"; sourceTree = "<group>"; };
+		F09FB54F27D67E1B00E07781 /* Medieval bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Medieval bell.mp3"; sourceTree = "<group>"; };
+		F09FB55027D67E1B00E07781 /* Large gong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Large gong.mp3"; sourceTree = "<group>"; };
+		F09FB55127D67E1C00E07781 /* Japanese bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Japanese bell.mp3"; sourceTree = "<group>"; };
+		F09FB55227D67E1C00E07781 /* Chimes.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Chimes.mp3; sourceTree = "<group>"; };
+		F09FB55727D6882400E07781 /* Small bell jingling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Small bell jingling.mp3"; sourceTree = "<group>"; };
 		F0A3326C2589395100D7F093 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		F0D28654254F25F900156538 /* SettingsView.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,9 +160,16 @@
 		F055C91D2576B15400103F70 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F055C91E2576B1AB00103F70 /* beep.mp3 */,
-				F03236B92664EF890079376E /* ding.mp3 */,
-				F03236BA2664EF890079376E /* meditationBell.mp3 */,
+				F055C91E2576B1AB00103F70 /* Beep.mp3 */,
+				F03236B92664EF890079376E /* Ding.mp3 */,
+				F09FB55227D67E1C00E07781 /* Chimes.mp3 */,
+				F03236BA2664EF890079376E /* Meditation bell.mp3 */,
+				F09FB54D27D678BA00E07781 /* Deep bell.mp3 */,
+				F09FB55027D67E1B00E07781 /* Large gong.mp3 */,
+				F09FB55127D67E1C00E07781 /* Japanese bell.mp3 */,
+				F09FB54F27D67E1B00E07781 /* Medieval bell.mp3 */,
+				F09FB55727D6882400E07781 /* Small bell jingling.mp3 */,
+				F09FB54B27D6783300E07781 /* Noah bells.mp3 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -158,8 +179,8 @@
 			children = (
 				F0A3326C2589395100D7F093 /* Time.swift */,
 				F02A0F002619E84800949C8D /* PomodoroTimer.swift */,
-				F03236BF2664F00B0079376E /* Sound.swift */,
 				F03236BD2664EFB60079376E /* TimerSettings.swift */,
+				F03236BF2664F00B0079376E /* Sound.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -229,12 +250,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F055C91F2576B1AB00103F70 /* beep.mp3 in Resources */,
-				F03236BB2664EF890079376E /* ding.mp3 in Resources */,
+				F09FB54E27D678BA00E07781 /* Deep bell.mp3 in Resources */,
+				F09FB54C27D6783300E07781 /* Noah bells.mp3 in Resources */,
+				F09FB55827D6882400E07781 /* Small bell jingling.mp3 in Resources */,
+				F055C91F2576B1AB00103F70 /* Beep.mp3 in Resources */,
+				F03236BB2664EF890079376E /* Ding.mp3 in Resources */,
 				F0084C1525449ACE00BB1641 /* Preview Assets.xcassets in Resources */,
 				F03236B72664E62E0079376E /* README.md in Resources */,
+				F09FB55427D67E1C00E07781 /* Large gong.mp3 in Resources */,
+				F09FB55327D67E1C00E07781 /* Medieval bell.mp3 in Resources */,
 				F0084C1225449ACE00BB1641 /* Assets.xcassets in Resources */,
-				F03236BC2664EF890079376E /* meditationBell.mp3 in Resources */,
+				F09FB55627D67E1C00E07781 /* Chimes.mp3 in Resources */,
+				F09FB55527D67E1C00E07781 /* Japanese bell.mp3 in Resources */,
+				F03236BC2664EF890079376E /* Meditation bell.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

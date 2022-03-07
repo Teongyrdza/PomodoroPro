@@ -8,57 +8,81 @@
 import SwiftUI
 import AVKit
 
+class PickerModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
+    var playing = false
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        playing = false
+    }
+}
+
 struct SoundPicker: View {
     static let sounds = [
-        Sound(named: "beep", description: "Beep"),
-        Sound(named: "ding", description: "Ding"),
-        Sound(named: "meditationBell", description: "Meditation Bell")
+        Sound(named: "Beep"),
+        Sound(named: "Ding"),
+        Sound(named: "Chimes"),
+        Sound(named: "Meditation bell"),
+        Sound(named: "Deep bell"),
+        Sound(named: "Large gong"),
+        Sound(named: "Japanese bell"),
+        Sound(named: "Medieval bell"),
+        Sound(named: "Small bell jingling"),
+        Sound(named: "Noah bells")
     ]
     
     @Binding var selection: Sound
-    @State var isPlaying = false
+    @StateObject var model = PickerModel()
     
     var player: AVAudioPlayer {
         selection.player
     }
     
+    func stopSound() {
+        player.stop()
+        model.playing = false
+    }
+    
     var body: some View {
         List {
             ForEach(Self.sounds) { sound in
-                Text(sound.description)
-                    .onTapGesture {
-                        // Stop previous sound, if playing
-                        if isPlaying {
-                            isPlaying = false
-                            player.pause()
-                        }
-                        
-                        if selection != sound || !isPlaying {
-                            selection = sound
-                            isPlaying = true
-                            player.currentTime = .zero
-                            player.play()
-                        }
+                Button {
+                    if selection != sound {
+                        stopSound()
+                        selection = sound
                     }
-                    .if(selection == sound)
-                    .listRowBackground(Color.accentColor.opacity(0.8))
-                    .endif()
+                    
+                    if model.playing {
+                        stopSound()
+                    }
+                    else {
+                        model.playing = true
+                        player.delegate = model
+                        player.currentTime = .zero
+                        player.play()
+                    }
+                } label: {
+                    Text(sound.description)
+                        .foregroundColor(.primary)
+                }
+                .if(selection == sound)
+                .listRowBackground(Color.accentColor)
+                .endif()
             }
         }
-        .listStyle(GroupedListStyle())
+        .listStyle(.grouped)
         .navigationTitle("Sound")
     }
 }
 
 #if DEBUG
 struct SoundPicker_Previews: PreviewProvider {
-    @State static var sound = Sound(named: "beep", description: "Beep")
+    @State static var sound = Sound(named: "Beep")
     
     static var previews: some View {
         NavigationView {
             SoundPicker(selection: $sound)
         }
-        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationViewStyle(.stack)
     }
 }
 #endif
