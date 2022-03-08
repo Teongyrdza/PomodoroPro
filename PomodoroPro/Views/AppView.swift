@@ -15,22 +15,22 @@ struct AppView: View {
     
     var body: some View {
         NavigationView {
-            Group {
-                if showingTimer {
-                    PomodoroView(
-                        viewModel: .init(
-                            settings: timerSettings,
-                            showing: $showingTimer,
-                            initialState: initialState
+            SettingsView(showingTimer: $showingTimer, timerState: $initialState)
+                .fullScreenCover(isPresented: $showingTimer) {
+                    NavigationView {
+                        PomodoroView(
+                            viewModel: .init(
+                                settings: timerSettings,
+                                showing: $showingTimer,
+                                initialState: initialState
+                            )
                         )
-                    )
+                        .navigationTitle("Pomodoro Pro")
+                    }
+                    .navigationViewStyle(.stack)
                 }
-                else {
-                    SettingsView(showingTimer: $showingTimer, timerState: $initialState)
-                }
-            }
-            .navigationTitle("Pomodoro Pro")
-            .environmentObject(timerSettings)
+                .navigationTitle("Pomodoro Pro")
+                .environmentObject(timerSettings)
         }
         .navigationViewStyle(.stack)
         .onChange(of: scenePhase) { newPhase in
