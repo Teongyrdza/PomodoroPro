@@ -13,8 +13,6 @@
 		F0084C1E25449B2600BB1641 /* PomodoroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0084C1D25449B2600BB1641 /* PomodoroView.swift */; };
 		F02A0F012619E84800949C8D /* PomodoroTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02A0F002619E84800949C8D /* PomodoroTimer.swift */; };
 		F02A0F38261AFF3800949C8D /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02A0F37261AFF3800949C8D /* TimePicker.swift */; };
-		F02A0F61262020C100949C8D /* FSPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02A0F60262020C100949C8D /* FSPicker.swift */; };
-		F02A0F642620255B00949C8D /* WheelPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02A0F632620255B00949C8D /* WheelPicker.swift */; };
 		F031CFDE2725BB2600BE3D1D /* InertState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F031CFDD2725BB2600BE3D1D /* InertState.swift */; };
 		F03236AB2663AEAA0079376E /* StarUI in Frameworks */ = {isa = PBXBuildFile; productRef = F03236AA2663AEAA0079376E /* StarUI */; };
 		F03236AD2663EC4B0079376E /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03236AC2663EC4B0079376E /* AppView.swift */; };
@@ -49,8 +47,6 @@
 		F0084C1D25449B2600BB1641 /* PomodoroView.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = PomodoroView.swift; sourceTree = "<group>"; };
 		F02A0F002619E84800949C8D /* PomodoroTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomodoroTimer.swift; sourceTree = "<group>"; };
 		F02A0F37261AFF3800949C8D /* TimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
-		F02A0F60262020C100949C8D /* FSPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSPicker.swift; sourceTree = "<group>"; wrapsLines = 0; };
-		F02A0F632620255B00949C8D /* WheelPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelPicker.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		F031CFDD2725BB2600BE3D1D /* InertState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InertState.swift; sourceTree = "<group>"; };
 		F03236AC2663EC4B0079376E /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		F03236AE2664BADA0079376E /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -135,8 +131,6 @@
 				F0D28654254F25F900156538 /* SettingsView.swift */,
 				F03236C12664F6C20079376E /* SoundPicker.swift */,
 				F02A0F37261AFF3800949C8D /* TimePicker.swift */,
-				F02A0F60262020C100949C8D /* FSPicker.swift */,
-				F02A0F632620255B00949C8D /* WheelPicker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -279,13 +273,11 @@
 			files = (
 				F0084C1E25449B2600BB1641 /* PomodoroView.swift in Sources */,
 				F03236AF2664BADA0079376E /* String.swift in Sources */,
-				F02A0F642620255B00949C8D /* WheelPicker.swift in Sources */,
 				F02A0F012619E84800949C8D /* PomodoroTimer.swift in Sources */,
 				F03236B32664C53B0079376E /* PomodoroViewModel.swift in Sources */,
 				F03236C22664F6C20079376E /* SoundPicker.swift in Sources */,
 				F0084C0E25449ACC00BB1641 /* PomodoroProApp.swift in Sources */,
 				F03236C02664F00B0079376E /* Sound.swift in Sources */,
-				F02A0F61262020C100949C8D /* FSPicker.swift in Sources */,
 				F0A3326D2589395100D7F093 /* Time.swift in Sources */,
 				F0D28655254F25F900156538 /* SettingsView.swift in Sources */,
 				F03236AD2663EC4B0079376E /* AppView.swift in Sources */,
